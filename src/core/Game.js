@@ -1,10 +1,11 @@
 import Card from "@core/Card";
 import config from "@/config";
-import { each, forIn } from "lodash";
+import { each } from "lodash";
+import { $ } from "@/utils";
 
 class Game
 {
-    constructor()
+    constructor(root)
     {
         /**
          * Настройки игры
@@ -13,6 +14,8 @@ class Game
         this.options = {
 
         };
+
+        this.root = $(root);
 
         /**
          * Колода карт
@@ -40,6 +43,16 @@ class Game
                 this.addCard({ type, path })
             });
         });
+    }
+
+    buildHtml()
+    {
+
+    }
+
+    start()
+    {
+
     }
 }
 

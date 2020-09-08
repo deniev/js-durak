@@ -1,4 +1,4 @@
-import { forIn, isObject } from 'lodash';
+import { isArray, each, isObject } from 'lodash';
 
 export default class DOM
 {
@@ -37,12 +37,23 @@ export default class DOM
         const element = document.createElement(selector);
 
         if (isObject(options)) {
-            forIn(options, (value, attribute) => {
+            each(options, (value, attribute) => {
                 element.setAttribute(attribute, value);
             });
         }
 
         return new DOM(element);
+    }
+
+    html(data)
+    {
+        if (isArray(data)) {
+            return each(data, html => {
+                return this.html(html)
+            })
+        }
+
+        return this.element.insertAdjacentHTML('afterend', data);
     }
 
     render()
