@@ -21,6 +21,23 @@ class Player
          * @type {Array}
          */
         this.cards = [];
+
+        this.initialize();
+    }
+
+    addCard(card)
+    {
+        this.cards.push(card);
+    }
+
+    initialize()
+    {
+
+    }
+
+    step()
+    {
+
     }
 }
 
