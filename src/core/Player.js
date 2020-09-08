@@ -9,6 +9,12 @@ class Player
          * @type {string}
          */
         this.id = uuid();
+
+        /**
+         * Текущие игровые карты пользователя
+         * @type {Array}
+         */
+        this.cards = [];
     }
 }
 
