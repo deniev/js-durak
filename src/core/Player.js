@@ -2,8 +2,14 @@ import { v4 as uuid } from 'uuid';
 
 class Player
 {
-    constructor()
+    constructor(game)
     {
+        /**
+         * Объект игры
+         * @type {}
+         */
+        this.game = game;
+
         /**
          * Идентификатор пользователя
          * @type {string}
