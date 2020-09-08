@@ -1,4 +1,6 @@
 import Card from "@core/Card";
+import config from "@/config";
+import { each, forIn } from "lodash";
 
 class Game
 {
@@ -6,30 +8,38 @@ class Game
     {
         /**
          * Настройки игры
-         * @type {Object}
+         * @type Object
          */
         this.options = {
-            cardsCount: 36
+
         };
 
         /**
          * Колода карт
-         * @type {Array}
+         * @type Array
          */
         this.deck = [];
 
         this.initialize();
     }
 
+    /**
+     * Метод для добавления карты в колоду
+     *
+     * @param card
+     */
+    addCard(card)
+    {
+        this.deck.push(new Card(card));
+    }
+
     initialize()
     {
-        const { cardsCount } = this.options;
-
-        for (let i = 1; i <= cardsCount; i++) {
-            this.deck.push(
-                new Card()
-            );
-        }
+        each(config.data, ({ type, cards }) => {
+            each(cards, path => {
+                this.addCard({ type, path })
+            });
+        });
     }
 }
 

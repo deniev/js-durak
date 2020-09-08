@@ -15,6 +15,8 @@ class Card
          * @type string
          */
         this.type = options.type;
+
+        this.path = options.path;
     }
 }
 
